@@ -4,7 +4,6 @@ from src.crewai_agent.crews.teaching_crew import TeachingCrews
 from dotenv import find_dotenv, load_dotenv
 
 
-# api_key = "AIzaSyArW_KXmyXFOI8hi_3fj8aulsLXp1aWl9M" 
 _:bool=load_dotenv(find_dotenv())
 class panaFlow(Flow):
 
@@ -13,7 +12,7 @@ class panaFlow(Flow):
         response = completion (
             model="gemini/gemini-1.5-flash",
             # api_key=api_key,
-            messages=[{"role":"user","content":"share the most trending topic in Ai  World only on one sentence"}]
+            messages=[{"role":"user","content":"share the most trending topic in Ai  World "}]
         )
         result = response["choices"][0]["message"]["content"]
         self.state["topic"] = result 
