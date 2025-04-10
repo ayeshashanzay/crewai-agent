@@ -1,0 +1,34 @@
+from crewai.flow.flow import Flow,start,listen
+from litellm import completion 
+from src.crewai_agent.crews.teaching_crew import TeachingCrews
+from dotenv import find_dotenv, load_dotenv
+
+
+# api_key = "AIzaSyArW_KXmyXFOI8hi_3fj8aulsLXp1aWl9M" 
+_:bool=load_dotenv(find_dotenv())
+class panaFlow(Flow):
+
+    @start()
+    def genetate_topic(self):
+        response = completion (
+            model="gemini/gemini-1.5-flash",
+            # api_key=api_key,
+            messages=[{"role":"user","content":"share the most trending topic in Ai  World only on one sentence"}]
+        )
+        result = response["choices"][0]["message"]["content"]
+        self.state["topic"] = result 
+        print(f"Step 1 Topic: {self.state["topic"]} ")
+        return result
+
+    @listen(genetate_topic)
+    def generate_content(self):
+        print("Step 2 Generate Content")
+        teaching_crew = TeachingCrews().teaching_crew().kickoff(
+            inputs={"topic":self.state['topic']}
+        )
+        print(teaching_crew)
+
+def kickoff():
+    obj = panaFlow()
+    result =  obj.kickoff()
+    print(result)

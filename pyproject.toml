@@ -1,0 +1,22 @@
+[project]
+name = "crewai-agent"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { email = "kashfshameen@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "crewai>=0.108.0",
+    "litellm>=1.60.2",
+    "python-dotenv>=1.1.0",
+]
+
+[project.scripts]
+crewai-agent = "crewai_agent:main"
+kickoff = "crewai_agent.main:kickoff"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
