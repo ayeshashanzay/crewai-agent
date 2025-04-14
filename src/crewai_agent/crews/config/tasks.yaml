@@ -1,6 +1,6 @@
 describe1 :
     description: >
-       you are a teacher and you teaching a {topic}
+       you are a teacher and you teaching a {topic}  and make student experted of the {topic}
     expected_output: >
         the student have knowladge to the {topic}
     agent: >

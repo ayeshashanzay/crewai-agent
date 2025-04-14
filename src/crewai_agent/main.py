@@ -1,10 +1,11 @@
 from crewai.flow.flow import Flow,start,listen
-from litellm import completion 
 from src.crewai_agent.crews.teaching_crew import TeachingCrews
+from litellm import completion 
 from dotenv import find_dotenv, load_dotenv
 
 
 _:bool=load_dotenv(find_dotenv())
+
 class panaFlow(Flow):
 
     @start()

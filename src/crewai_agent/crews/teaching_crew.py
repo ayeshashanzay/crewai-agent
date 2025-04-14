@@ -4,6 +4,7 @@ from crewai.project import CrewBase, agent, crew, task
 
 @CrewBase
 class TeachingCrews():
+    
     agents_config = "config/agents.yaml"
     tasks_config = "config/tasks.yaml"
 
