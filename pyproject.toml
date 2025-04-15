@@ -11,8 +11,9 @@ dependencies = [
     "crewai>=0.108.0",
     "litellm>=1.60.2",
     "python-dotenv>=1.1.0",
+    "streamlit>=1.44.1",
 ]
-
+    
 [project.scripts]
 crewai-agent = "crewai_agent:main"
 kickoff = "crewai_agent.main:kickoff"
