@@ -26,7 +26,7 @@ class panaFlow(Flow):
         teaching_crew = TeachingCrews().teaching_crew().kickoff(
             inputs={"topic":self.state['topic']}
         )
-        print(teaching_crew)
+        return {"topic":self.state.topic, "content": self.teaching_crew}
 
 def kickoff():
     obj = panaFlow()
